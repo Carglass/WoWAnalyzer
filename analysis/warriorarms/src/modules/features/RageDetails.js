@@ -3,6 +3,7 @@ import { formatPercentage } from 'common/format';
 import { Panel } from 'interface';
 import { Icon } from 'interface';
 import Analyzer from 'parser/core/Analyzer';
+import { ThresholdStyle } from 'parser/core/ParseResults';
 import ResourceBreakdown from 'parser/shared/modules/resources/resourcetracker/ResourceBreakdown';
 import StatisticBox, { STATISTIC_ORDER } from 'parser/ui/StatisticBox';
 import React from 'react';
@@ -22,7 +23,7 @@ class RageDetails extends Analyzer {
         average: 0.9,
         major: 0.85,
       },
-      style: 'percentage',
+      style: ThresholdStyle.PERCENTAGE,
     };
   }
 
@@ -34,7 +35,7 @@ class RageDetails extends Analyzer {
         average: 0.1,
         major: 0.15,
       },
-      style: 'percentage',
+      style: ThresholdStyle.PERCENTAGE,
     };
   }
 

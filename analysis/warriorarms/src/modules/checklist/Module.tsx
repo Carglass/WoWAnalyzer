@@ -9,6 +9,7 @@ import RendUptime from '../core/Dots/RendUptime';
 import MortalStrike from '../core/Execute/MortalStrike';
 import SweepingStrikes from '../core/SweepingStrikes';
 import AlwaysBeCasting from '../features/AlwaysBeCasting';
+import RageDetails from '../features/RageDetails';
 import Component from './Component';
 
 class Checklist extends BaseChecklist {
@@ -21,6 +22,7 @@ class Checklist extends BaseChecklist {
     rendUptime: RendUptime,
     mortalStrike: MortalStrike,
     sweepingStrikes: SweepingStrikes,
+    rage: RageDetails,
   };
   protected combatants!: Combatants;
   protected castEfficiency!: CastEfficiency;
@@ -30,6 +32,7 @@ class Checklist extends BaseChecklist {
   protected rendUptime!: RendUptime;
   protected mortalStrike!: MortalStrike;
   protected sweepingStrikes!: SweepingStrikes;
+  protected rage!: RageDetails;
 
   render() {
     return (
@@ -46,6 +49,7 @@ class Checklist extends BaseChecklist {
           notEnoughMortalStrike: this.mortalStrike.notEnoughMortalStrikeThresholds,
           tooMuchMortalStrike: this.mortalStrike.tooMuchMortalStrikeThresholds,
           badSweepingStrikes: this.sweepingStrikes.suggestionThresholds,
+          rage: this.rage.suggestionThresholds,
         }}
       />
     );

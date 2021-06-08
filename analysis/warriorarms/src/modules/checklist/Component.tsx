@@ -156,6 +156,13 @@ const ArmWarriorChecklist = ({ combatant, castEfficiency, thresholds }: Checklis
       >
         <Requirement name="Downtime" thresholds={thresholds.downtimeSuggestionThresholds} />
       </Rule>
+      <Rule
+        name="Do not overcap Rage"
+        description={<>You should never let your rage reach its cap.</>}
+      >
+        <Requirement name="Wasted Rage" thresholds={thresholds.rage} />
+      </Rule>
+
       <PreparationRule thresholds={thresholds} />
     </Checklist>
   );
