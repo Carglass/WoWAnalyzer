@@ -137,11 +137,19 @@ const ArmWarriorChecklist = ({ combatant, castEfficiency, thresholds }: Checklis
         />
       </Rule>
       <Rule
-        name="Use your defensive cooldowns"
-        description="While you shouldn't cast these defensives on cooldown, be aware of them and use them whenever effective. Not using them at all indicates you might not be aware of them or not using them optimally."
+        name="Rage Management"
+        description={
+          <>
+            Arms revolves around a rage-starve gameplay. However, rage can come in bursts and it is
+            a big loss of DPS to let it reach its cap. Be mindful of it when you are about to cast{' '}
+            <SpellLink id={SPELLS.BLADESTORM.id} /> (or{' '}
+            <SpellLink id={SPELLS.WARBREAKER_TALENT.id} /> if talented),{' '}
+            <SpellLink id={SPELLS.SKULLSPLITTER_TALENT.id} /> (if talented), or{' '}
+            <SpellLink id={SPELLS.DEADLY_CALM_TALENT.id} /> (if talented).
+          </>
+        }
       >
-        <AbilityRequirement spell={SPELLS.DIE_BY_THE_SWORD.id} />
-        <AbilityRequirement spell={SPELLS.RALLYING_CRY.id} />
+        <Requirement name="Wasted Rage" thresholds={thresholds.rage} />
       </Rule>
       <Rule
         name="Avoid downtime"
@@ -157,10 +165,11 @@ const ArmWarriorChecklist = ({ combatant, castEfficiency, thresholds }: Checklis
         <Requirement name="Downtime" thresholds={thresholds.downtimeSuggestionThresholds} />
       </Rule>
       <Rule
-        name="Do not overcap Rage"
-        description={<>You should never let your rage reach its cap.</>}
+        name="Use your defensive cooldowns"
+        description="While you shouldn't cast these defensives on cooldown, be aware of them and use them whenever effective. Not using them at all indicates you might not be aware of them or not using them optimally."
       >
-        <Requirement name="Wasted Rage" thresholds={thresholds.rage} />
+        <AbilityRequirement spell={SPELLS.DIE_BY_THE_SWORD.id} />
+        <AbilityRequirement spell={SPELLS.RALLYING_CRY.id} />
       </Rule>
 
       <PreparationRule thresholds={thresholds} />
